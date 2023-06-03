@@ -19,7 +19,6 @@ const SignInScreen = () => {
   const [password, setPassword] = useState('');
   
   const router = useRouter();
-  const [token, setToken] = useState([]);
 
   const url = 'https://snapi.musardo.fr/users/login';
   const dat = {
@@ -31,7 +30,7 @@ const SignInScreen = () => {
     'Content-Type': 'application/json',
   };
 
-  const {setAuthToken} = useAuth();
+  const {updateAuthToken} = useAuth();
 
   const onSignInPressed = async () => {
     try {
@@ -42,7 +41,7 @@ const SignInScreen = () => {
       });
       const responseData = await response.json();
 
-      setAuthToken(responseData.token)
+      await updateAuthToken(responseData.token)
 
       //router.replace('../home');
     } catch (error) {
