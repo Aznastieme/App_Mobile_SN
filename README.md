@@ -9,7 +9,7 @@ La partie back-end_, quand à elle, repose principalement sur Express, MySQL, Se
 L'application mobile, elle repose sur React Native et expo go
 
     -Pour installer l'application exportée sur votre Mobile, il faut un appareil sous Android, 
-    télécharger le fichier APK sur ce lien : https://expo.dev/artifacts/eas/m3hcHweMuyzpMBWN9WErsR.apk
+    télécharger le fichier APK sur ce lien : https://expo.dev/artifacts/eas/7KfcNPTY9futVrNEVbPNfz.apk
     -Lancer le fichier, et ignorez les messages de sécurité de google (l'application est sans danger)
     -Une fois installé, lancer l'application my-app, créez vous un compte, naviguez et essayez les fonctionnalités.
     
@@ -30,6 +30,7 @@ Pour utiliser l'application mobile en mode développement (si problèmes rencont
     et non accès a la page profile et retour d'erreur, appuyer sur le bouton "Se déconnecter" dans la page d'accueil, 
     et re-créer un compte, l'application ne vérifiant pas l'entrée du compte courant, si changement d'ID dans la base 
     elle bloquera.
+    -Si l'application dans expo-go est dans un état d'erreur et l'interface n'es plus accessible, appuyer sur "r" dans le terminal avec lequel vous avez lancé l'App pour reload l'application.
 
 
 Quelques détails sur l'application :
