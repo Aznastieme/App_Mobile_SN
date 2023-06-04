@@ -35,14 +35,19 @@ Pour utiliser l'application mobile en mode développement (si problèmes rencont
 
 Quelques détails sur l'application :
     -Pour rechercher, entrer le nom souhaité puis appuyer sur le bouton de recherche
+    
     -Lors de la recherche par catégorie, le texte affiché est l'ID de la catégorie,
      laissée telle quelle par manque de temps et d'autres priorités
+     
     -Lors de la création d'un évènement, le choix de la catégorie principale n'es pas permis, par manque
      de temps aussi
+     
     -Le bouton "Se Déconnecter" sur la page d'accueil n'es la que parce que l'application ne prends pas en compte
      les changements d'entrées dans la DB. Donc, si la page de profil n'es plus accessible, appuyer dessus et créez un nouveau compte.
+     
     -Afin de voir l'onglet My Events (du milieu) complet, connectez vous à un compte qui est participant à des events:
     email : leo-paul.musardo@etu.univ-amu.fr password : leopaul
+    
     -Apres tests, l'onglet "Profil" (en bas a droite du volet) n'es pas accessible depuis l'application exportée. Afin de le consulter,
     suivre les étapes d'installation en mode développement
 
