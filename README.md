@@ -10,7 +10,7 @@ L'application mobile, elle repose sur React Native et expo go
 
     -Pour installer l'application exportée sur votre Mobile, il faut un appareil sous Android, 
     télécharger le fichier APK sur ce lien : https://expo.dev/artifacts/eas/7KfcNPTY9futVrNEVbPNfz.apk
-    -Lancer le fichier, et ignorez les messages de sécurité de google (l'application est sans danger)
+    -Lancer le fichier, et ignorez les messages de sécurité de google (l'application est sans danger, appuyer sur plus d'options installer quand meme)
     -Une fois installé, lancer l'application my-app, créez vous un compte, naviguez et essayez les fonctionnalités.
     
 
