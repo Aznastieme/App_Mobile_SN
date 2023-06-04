@@ -1,16 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import {Stack, useRouter, useSearchParams, Redirect} from 'expo-router';
-import axios from 'axios';
+import {useRouter} from 'expo-router';
 
-import {
-  SafeAreaView,
-  View,
-  TextInput,
-  Button,
-  StyleSheet,
-  Image,
-  ScrollView,
-} from 'react-native';
+import { SafeAreaView } from 'react-native';
 import {CustomInput, CustomButton} from '../../components';
 import {useAuth} from '../../context/AuthContext';
 
@@ -32,6 +23,8 @@ const SignInScreen = () => {
 
   const {updateAuthToken} = useAuth();
 
+  const {updateAuthId} = useAuth();
+
   const onSignInPressed = async () => {
     try {
       const response = await fetch(url, {
@@ -41,6 +34,7 @@ const SignInScreen = () => {
       });
       const responseData = await response.json();
 
+      await updateAuthId(`${responseData.user.id}`)
       await updateAuthToken(responseData.token)
 
       //router.replace('../home');

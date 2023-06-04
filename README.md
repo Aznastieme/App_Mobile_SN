@@ -6,21 +6,11 @@ La partie front-end repose principalement sur React-dom, Raact-Router, et Chakra
 
 La partie back-end_, quand à elle, repose principalement sur Express, MySQL, Sequelize, JWT
 
-L'application mobile, elle 
-Pour commencer
-Le frontend
-git clone https://github.com/LPMusardo/sn-front.git
-Pré-requis
-Vous allez avoir besoin de :
+L'application mobile, elle repose sur React Native et expo go
 
-NodeJS/Npm
-Installation
-Configuration du frontend
-Pour configurer le frontend , il faut installer les dépendances.
+Pour l'application mobile, il faut installer nodeJs sur la machine
 
-npm install
-Démarrage
-On peut maintenant lancer le serveur.
+Ensuite, dans le dossier du projet, taper npm install
 
 npm run dev
 ##### result

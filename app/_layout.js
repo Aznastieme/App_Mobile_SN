@@ -2,6 +2,7 @@ import {Slot, Stack} from 'expo-router';
 import {useFonts} from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import AuthContextProvider from '../context/AuthContext';
+import { StatusBar } from 'expo-status-bar';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -16,13 +17,18 @@ const Layout = () => {
 
   return (
     <>
+    <StatusBar hidden />
       <AuthContextProvider>
+        
         <Stack
           screenOptions={{
             headerStyle: {backgroundColor: '#FAFAFC'},
             headerShadowVisible: false,
             headerTitle: '',
-          }}></Stack>
+          }}>
+            <Stack.Screen name="home" options={{headerShown: false}}/>
+            <Stack.Screen name="create-event/[id]" options={{heaerShadowVisible: true, headerTitle: '         Create an event'}}/>
+          </Stack>
       </AuthContextProvider>
     </>
   );

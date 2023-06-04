@@ -19,12 +19,23 @@ import {
   } from "../../components";
   import { COLORS, icons, SIZES } from "../../constants";
   import fetchEvents from "../../hook/fetchEvents";
+import { useAuth } from "../../context/AuthContext";
 
 const tabs = [ "Description", "Detail"];
 
 const EventDetails = () => {
+
+  
+
+  
+  const {authId} = useAuth();
+  const {authToken} = useAuth();
+
   const params = useSearchParams();
   const router = useRouter();
+
+  const split = params.id.split("&")
+  const id = split[0]
 
   const { data, isLoading, error, refetch } = fetchEvents(`/?eventId=${params.id}`, {
     
@@ -72,8 +83,9 @@ const EventDetails = () => {
 
   return (
     
+    
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
-     <Stack.Screen
+     <Stack
         options={{
           headerStyle: { backgroundColor: COLORS.lightWhite },
           headerShadowVisible: false,
@@ -124,7 +136,7 @@ const EventDetails = () => {
           )}
         </ScrollView>
 
-        <EventFooter url={data[0]?.imgGold ?? 'https://google.com'} />
+        <EventFooter id={id} token={authToken} />
       </>
     </SafeAreaView>
   );

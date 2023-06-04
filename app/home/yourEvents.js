@@ -3,33 +3,24 @@ import {View, SafeAreaView, FlatList} from 'react-native';
 import {Stack, useRouter} from 'expo-router';
 import {COLORS, icons, images, SIZES} from '../../constants';
 import {
-  NearbyEvents,
   PopularEvents,
   ScreenHeaderBtn,
+  UserEvents,
   Welcome,
+  UserParticipating,
 } from '../../components';
+import { useAuth } from '../../context/AuthContext';
 
-const Home = () => {
+const YourEvents = () => {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState('');
 
+  const {authId} = useAuth();
+  const {authToken} = useAuth();
+
   const data = [
-    {
-      key: '1',
-      component: (
-        <Welcome
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          handleClick={() => {
-            if (searchTerm) {
-              router.push(`/search_name/${searchTerm}`);
-            }
-          }}
-        />
-      ),
-    },
-    {key: '2', component: <PopularEvents />},
-    {key: '3', component: <NearbyEvents />},
+    {key: '1', component: <UserParticipating id={authId} token={authToken}/>},
+    {key: '2', component: <UserEvents id={authId} token={authToken}/>},
   ];
 
   const renderItem = ({item}) => (
@@ -37,7 +28,9 @@ const Home = () => {
   );
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.lightWhite}}>
+      
+
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -48,4 +41,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default YourEvents;

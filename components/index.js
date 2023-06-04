@@ -6,6 +6,9 @@ import NearbyEvents from "./home/nearby/NearbyEvents";
 import PopularEvents from "./home/popular/PopularEvents";
 import CustomInput from "./home/input/CustomInput";
 import CustomButton from "./home/button/CustomButton";
+import UserEvents from "./home/user/UserEvents";
+import UserParticipating from "./home/userParticipating/UserParticipating";
+
 
 // event details screen
 import Company from "./eventdetails/company/Company";
@@ -30,5 +33,7 @@ export {
   NearbyEventCard,
   CustomInput,
   CustomButton,
+  UserEvents,
+  UserParticipating,
 
 };
