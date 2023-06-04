@@ -8,17 +8,13 @@ La partie back-end_, quand à elle, repose principalement sur Express, MySQL, Se
 
 L'application mobile, elle repose sur React Native et expo go
 
-Pour l'application mobile, il faut installer nodeJs sur la machine
+Pour l'application mobile, il faut : 
 
-Ensuite, dans le dossier du projet, taper npm install
-
-npm run dev
-##### result
-#   VITE v4.3.5  ready in 303 ms
-#   ➜  Local:   http://localhost:5173/
-#   ➜  Network: http://???:5173/
-#   ➜  Network: http://???:5173/
-#   ➜  press h to show help
+#   ➜  Installer nodeJs sur la machine
+#   ➜  Télécharger Expo-go sur votre mobile,
+#   ➜  Cloner le projet GitHub sur votre machine
+#   ➜  Exécuter a l'aide d'un terminal, dans le dossier du projet, npm install
+#   ➜  
 Vous pouver maintenant aller sur le site
 http://localhost:5173/
 

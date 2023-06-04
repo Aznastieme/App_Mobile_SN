@@ -24,6 +24,7 @@ const CreateEvent = () => {
   const [timeApi, setTimeApi] = useState('');
   const [show, setShow] = useState(false);
   const [timeShow, setTimeShow] = useState(false);
+  const [mainCategory, setMainCategory] = useState();
 
   const router = useRouter();
 
