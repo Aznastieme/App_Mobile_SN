@@ -10,13 +10,21 @@ import {
   UserParticipating,
 } from '../../components';
 import { useAuth } from '../../context/AuthContext';
+import { RefreshControl } from 'react-native';
 
 const YourEvents = () => {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState('');
+  const [refreshing, setRefreshing] = useState(false);
 
   const {authId} = useAuth();
   const {authToken} = useAuth();
+  
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    setRefreshing(false)
+  }
 
   const data = [
     {key: '1', component: <UserParticipating id={authId} token={authToken}/>},
@@ -29,7 +37,7 @@ const YourEvents = () => {
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.lightWhite}}>
-      
+      <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
 
       <FlatList
         data={data}

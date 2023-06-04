@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {useRouter} from 'expo-router';
 
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, Alert } from 'react-native';
 import {CustomInput, CustomButton} from '../../components';
 import {useAuth} from '../../context/AuthContext';
 
 const SignInScreen = () => {
-  const [email, setEmail] = useState('micka@gmail.com');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
   const router = useRouter();
@@ -21,6 +21,11 @@ const SignInScreen = () => {
     'Content-Type': 'application/json',
   };
 
+  const alert = () =>
+    Alert.alert('Alert Title', 'Email/passord incorrect', [
+      {text: 'OK'},
+    ]);
+
   const {updateAuthToken} = useAuth();
 
   const {updateAuthId} = useAuth();
@@ -34,10 +39,15 @@ const SignInScreen = () => {
       });
       const responseData = await response.json();
 
+      console.log(responseData)
+
+      if(responseData.code == 401){
+        alert()
+        return;
+      }
+
       await updateAuthId(`${responseData.user.id}`)
       await updateAuthToken(responseData.token)
-
-      //router.replace('../home');
     } catch (error) {
       console.log(error);
     } finally {

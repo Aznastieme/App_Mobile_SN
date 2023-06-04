@@ -15,9 +15,9 @@ const InfoScreen = () => {
   const [pictureUrl, setPictureUrl] = useState('');
   const {updateAuthToken} = useAuth();
 
-  const { data, isLoading } = fetchUsers(`?id=${authId}&include_receivedNotes=true`, {});
+  const { dataUser, isLoading } = fetchUsers(`?id=${authId}&include_receivedNotes=true`, {});
 
-   const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   const handleEditProfile = () => {
     setIsEditing(true);
@@ -39,16 +39,16 @@ const InfoScreen = () => {
         ) : (
             <View>
       <Text>Nom :</Text>
-      <CustomInput placeholder={data.user.username} value={username} editable={isEditing} onChangeText={setUsername} />
+      <CustomInput placeholder={dataUser.user.username} value={username} editable={isEditing} onChangeText={setUsername} />
 
       <Text>Mail :</Text>
-      <CustomInput placeholder={data.user.email} value={email} editable={isEditing} onChangeText={setEmail} />
+      <CustomInput placeholder={dataUser.user.email} value={email} editable={isEditing} onChangeText={setEmail} />
 
       <Text>Description :</Text>
-      <CustomInput placeholder={data.user.bio} value={bio} editable={isEditing} onChangeText={setBio} />
+      <CustomInput placeholder={dataUser.user.bio} value={bio} editable={isEditing} onChangeText={setBio} />
 
       <Text>Image :</Text>
-      <CustomInput placeholder={data.user.picture} value={pictureUrl} editable={isEditing} onChangeText={setPictureUrl} />
+      <CustomInput placeholder={dataUser.user.picture} value={pictureUrl} editable={isEditing} onChangeText={setPictureUrl} />
       </View>
       )
     }

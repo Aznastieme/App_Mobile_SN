@@ -21,7 +21,7 @@ const SignUpScreen = () => {
   const dat = {
     username: `${username}`,
       password: `${password}`,
-      bio: "",
+      bio: `Bonjour, je suis ${username}`,
       email: `${email}`,
       picture: "http://www.image.com",
   };
@@ -45,10 +45,6 @@ const SignUpScreen = () => {
     router.push(`/signIn`)
 
     return (data, isLoading, error)
-
-    useEffect(() => {
-    
-    }, []);
   }
 
   

@@ -16,7 +16,6 @@ const AuthContextProvider = ({children}) => {
     const isAuthGroup = segments[0] == "(auth)";
 
     if (!authToken && !isAuthGroup) {
-      console.log("User not auth");
       router.replace("/signIn");
     }
     if (authToken && isAuthGroup) {
@@ -26,19 +25,14 @@ const AuthContextProvider = ({children}) => {
   }, [segments, authToken]);
 
   useEffect(() => {
-    const loadAuth = async () => {
+    // const loadAuth = async () => {
 
-      const response = await SecureStore.getItemAsync('authToken');
-      setAuthToken(response);
-      const id = await SecureStore.getItemAsync('authId');
-      setAuthId(id);
-      // const data = postApply(response, id)
-      // if(data && response && id){
-      //    setAuthToken(response);
-      //    setAuthId(id);
-      // }
-    };
-    loadAuth();
+    //   const response = await SecureStore.getItemAsync('authToken');
+    //   setAuthToken(response);
+    //   const id = await SecureStore.getItemAsync('authId');
+    //   setAuthId(id);
+    // };
+    // loadAuth();
   }, [])
 
   const updateAuthToken = async (newToken) => {

@@ -24,10 +24,6 @@ import { useAuth } from "../../context/AuthContext";
 const tabs = [ "Description", "Detail"];
 
 const EventDetails = () => {
-
-  
-
-  
   const {authId} = useAuth();
   const {authToken} = useAuth();
 
@@ -40,6 +36,11 @@ const EventDetails = () => {
   const { data, isLoading, error, refetch } = fetchEvents(`/?eventId=${params.id}`, {
     
   });
+
+  if (data && data.user) {
+    const participantEvents = data.user.participantEvents;
+    console.log(participantEvents)
+  }
 
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const [refreshing, setRefreshing] = useState(false);
@@ -136,7 +137,7 @@ const EventDetails = () => {
           )}
         </ScrollView>
 
-        <EventFooter id={id} token={authToken} />
+        <EventFooter id={id} token={authToken} authId={authId} />
       </>
     </SafeAreaView>
   );

@@ -15,10 +15,7 @@ const NearbyEvents = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Nearby events</Text>
-        <TouchableOpacity>
-          <Text style={styles.headerBtn}>Show all</Text>
-        </TouchableOpacity>
+        <Text style={styles.headerTitle}>All events</Text>
       </View>
 
       <View style={styles.cardsContainer}>

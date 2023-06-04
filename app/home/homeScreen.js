@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {View, SafeAreaView, FlatList} from 'react-native';
+import {View, SafeAreaView, FlatList, Button} from 'react-native';
 import {Stack, useRouter} from 'expo-router';
 import {COLORS, icons, images, SIZES} from '../../constants';
 import {
@@ -12,6 +12,10 @@ import {
 const Home = () => {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState('');
+
+  const logout = async () => {
+    await updateAuthToken("")
+  }
 
   const data = [
     {
@@ -44,6 +48,8 @@ const Home = () => {
         keyExtractor={item => item.key}
         showsVerticalScrollIndicator={false}
       />
+      
+      <Button title="Se déconnecter" onPress={logout} />
     </SafeAreaView>
   );
 };

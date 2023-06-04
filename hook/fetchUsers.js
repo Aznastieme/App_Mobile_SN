@@ -3,7 +3,7 @@ import axios from "axios";
 import { API_URL } from "./config";
 
 const fetchUsers = (endpoint, query) => {
-  const [data, setData] = useState([]);
+  const [dataUser, setDataUser] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -19,7 +19,7 @@ const fetchUsers = (endpoint, query) => {
     try {
       const response = await axios.request(options);
       
-      setData(response.data);
+      setDataUser(response.data);
       setIsLoading(false);
     } catch (error) {
       setError(error);
@@ -38,7 +38,7 @@ const fetchUsers = (endpoint, query) => {
     fetchData();
   };
 
-  return { data, isLoading, error, refetch };
+  return { dataUser, isLoading, error, refetch };
 };
 
 export default fetchUsers;

@@ -1,6 +1,6 @@
-import {Pressable, Text} from 'react-native';
+import {Pressable, Text, Alert} from 'react-native';
 import React, {useState} from 'react';
-import {useSearchParams} from 'expo-router';
+import {useRouter, useSearchParams} from 'expo-router';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {CustomInput, CustomButton} from '../../components';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -13,6 +13,8 @@ const CreateEvent = () => {
   const [street, setStreet] = useState('');
   const [zip, setZip] = useState('');
   const [city, setCity] = useState('');
+  const [imageUrl, SetImageUrl] = useState('https://atlas-content-cdn.pixelsquid.com/stock-images/empty-glass-beer-pint-o0LJDW7-600.jpg');
+  const [participantsNumber, setParticipantNumber] = useState();
   const [country, setCountry] = useState('');
   const [date, setDate] = useState(new Date());
   const [dateString, setDateString] = useState('');
@@ -20,19 +22,29 @@ const CreateEvent = () => {
   const [timeString, setTimeString] = useState('');
   const [dateApi, setDateApi] = useState('');
   const [timeApi, setTimeApi] = useState('');
-
   const [show, setShow] = useState(false);
   const [timeShow, setTimeShow] = useState(false);
 
-  
+  const router = useRouter();
+
+
+  const alert = () =>
+    Alert.alert('Alert Title', 'Token expired. Please logout and login again', [
+      {text: 'OK'},
+    ]);
+
+    const alertFail = () =>
+    Alert.alert('Incorrect form', 'Please fill the form correctly', [
+      {text: 'OK'},
+    ]);
 
   const params = useSearchParams();
-  const url = 'https://snapi.musardo.fr/events';
+  const url = 'https://snapi.musardo.fr/events/create';
   const dat = {
-    participants_number: '0',
+    participants_number: participantsNumber,
     category: `${category}`,
     description: `${description}`,
-    image_url: '',
+    image_url: `${imageUrl}`,
     name: `${name}`,
     date: `${dateApi}T${timeApi}Z`,
     address: {
@@ -57,8 +69,13 @@ const CreateEvent = () => {
         body: JSON.stringify(dat),
       });
       const responseData = await response.json();
-
       console.log(responseData)
+
+      if(responseData.code == 401) alert()
+
+      else if(responseData.code == 400) alertFail()
+
+      else router.replace('/home/yourEvents')
 
       //router.replace('../home');
     } catch (error) {
@@ -82,7 +99,7 @@ const CreateEvent = () => {
 
       toggleTimePicker();
       setTimeApi(
-        `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`,
+        `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}.000`,
       );
       setTimeString(`${currentDate.getHours()}:${currentDate.getMinutes()}`);
 
@@ -101,14 +118,14 @@ const CreateEvent = () => {
       toggleDatePicker();
       setDateApi(`${year}-${month}-${days}`);
       if (days < 10) {
-        if (currentDate.getMonth() < 10) {
+        if (month < 10) {
           setDateString(`0${days}-0${month}-${year}`);
-          setDateApi(`0${year}-0${month}-${days}`);
+          setDateApi(`${year}-0${month}-0${days}`);
           return;
         }
         setDateString(`0${days}-${month}-${year}`);
-        setDateApi(`0${year}-${month}-${days}`);
-      } else if (currentDate.getMonth() < 10) {
+        setDateApi(`${year}-${month}-0${days}`);
+      } else if (month < 10) {
         setDateString(`${days}-0${month}-${year}`);
         setDateApi(`${year}-0${month}-${days}`);
       } else {
@@ -128,26 +145,29 @@ const CreateEvent = () => {
         backgroundColor: '#F9FBFC',
       }}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <CustomInput placeholder="Name" value={"name"} setValue={setName} />
+        <CustomInput placeholder="Name" value={name} setValue={setName} />
         <CustomInput
-          placeholder="Category"
-          value={"category"}
+          placeholder="Sub Category"
+          value={category}
           setValue={setCategory}
         />
         {/* <CustomInput placeholder="Date" value={date} setValue={setDate} /> */}
         <CustomInput
           placeholder="Description"
-          value={"description"}
+          value={description}
           setValue={setDescription}
         />
-        <CustomInput placeholder="Street" value={"street"} setValue={setStreet} />
-        <CustomInput placeholder="City" value={"city"} setValue={setCity} />
+        <CustomInput placeholder="Max Participants" value={participantsNumber} setValue={setParticipantNumber} keyboardType={'numeric'} />
+        <CustomInput placeholder="Image url" value={imageUrl} setValue={SetImageUrl} />
+        <CustomInput placeholder="Street" value={street} setValue={setStreet} />
+        <CustomInput placeholder="City" value={city} setValue={setCity} />
         <CustomInput
           placeholder="Country"
-          value={"country"}
+          value={country}
           setValue={setCountry}
         />
-        <CustomInput placeholder="Zip" value={"zip"} setValue={setZip} />
+        <CustomInput placeholder="Zip" value={zip} setValue={setZip} keyboardType={'numeric'} />
+
         <Pressable onPress={toggleDatePicker}>
           <CustomInput
             placeholder="Date"

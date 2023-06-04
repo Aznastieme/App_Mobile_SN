@@ -5,21 +5,23 @@ import styles from './userparticipating.style';
 import { COLORS } from '../../../constants';
 import NearbyEventCard from '../../common/cards/nearby/NearbyEventCard';
 import fetchEvents from '../../../hook/fetchEvents'
+import fetchUsers from '../../../hook/fetchUsers'
 import PopularEventCard from '../../common/cards/popular/PopularEventCard';
 import { useState } from 'react';
 
 const UserParticipating = ({id}) => {
   const router = useRouter();
-  const { data, isLoading, error } = fetchEvents("", {
+  const { dataUser, isLoading, error, refetch } = fetchUsers(`?id=${id}&include_organizedEvents=true&include_participantEvents=true`, {
 
   });
 
+
   const myEvents = [];
-  if (data && data.events) {
-    data.events.forEach(function(item) {
-      if (item.organizerId == id) {
+
+  if (dataUser && dataUser.user) {
+    const participantEvents = dataUser.user.participantEvents;
+    participantEvents.forEach(function(item) {
         myEvents.push(item);
-      }
     });
   }
 
