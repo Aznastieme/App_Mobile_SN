@@ -8,8 +8,7 @@ La partie back-end_, quand à elle, repose principalement sur Express, MySQL, Se
 
 L'application mobile, elle repose sur React Native et expo go
 
-  -Pour installer l'application exportée sur votre Mobile, il faut un appareil sous Android, puis télécharger le fichier APK sur ce lien :
-  -https://expo.dev/artifacts/eas/m3hcHweMuyzpMBWN9WErsR.apk
+  -Pour installer l'application exportée sur votre Mobile, il faut un appareil sous Android, puis télécharger le fichier APK sur ce lien : https://expo.dev/artifacts/eas/m3hcHweMuyzpMBWN9WErsR.apk
   -Lancer le fichier, et ignorez les messages de sécurité de google (l'application est sans danger)
   -Une fois installé, lancer l'application my-app, créez vous un compte, puis naviguez et essayez les fonctionnalités.
 
