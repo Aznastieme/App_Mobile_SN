@@ -43,6 +43,8 @@ Quelques détails sur l'application :
      les changements d'entrées dans la DB. Donc, si la page de profil n'es plus accessible, appuyer dessus et créez un nouveau compte.
     -Afin de voir l'onglet My Events (du milieu) complet, connectez vous à un compte qui est participant à des events:
     email : leo-paul.musardo@etu.univ-amu.fr password : leopaul
+    -Apres tests, l'onglet "Profil" (en bas a droite du volet) n'es pas accessible depuis l'application exportée. Afin de le consulter,
+    suivre les étapes d'installation en mode développement
 
 Auteurs:
 
