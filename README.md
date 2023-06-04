@@ -30,8 +30,12 @@ Pour utiliser l'application mobile en mode développement (si problèmes rencont
     et re-créer un compte, l'application ne vérifiant pas l'entrée du compte courant, si changement d'ID dans la base 
     elle bloquera.
 
-Auteurs
+Auteurs:
+
 Léo-Paul Musardo
+
 Maxime Guiliani
+
 Mickaël Lascoutounas
+
 Yacine Boukhari
