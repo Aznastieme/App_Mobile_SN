@@ -16,8 +16,8 @@ L'application mobile, elle repose sur React Native et expo go
 
 Pour utiliser l'application mobile en mode développement (si problèmes rencontrés avec l'application exportée), il faut : 
 
-#   ➜  Installer nodeJs sur la machine
-#   ➜  Télécharger Expo-go sur votre mobile, ou télécharger Android Studio pour émuler un appareil
+  ➜  Installer nodeJs sur la machine
+  ➜  Télécharger Expo-go sur votre mobile, ou télécharger Android Studio pour émuler un appareil
 #   ➜  Dans le cas d'Android Studio, sélectionner "more actions", puis Virtual Device Manager, Create Device, et en choisir un avec l'icone Play Store
 #   ➜  Installer Git sur la machine si vous voulez cloner le projet GitHub, puis cloner le projet
 #   ➜  Exécuter a l'aide d'un terminal, dans le dossier du projet, npm install
