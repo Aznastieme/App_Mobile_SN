@@ -12,6 +12,7 @@ L'application mobile, elle repose sur React Native et expo go
     télécharger le fichier APK sur ce lien : https://expo.dev/artifacts/eas/m3hcHweMuyzpMBWN9WErsR.apk
     -Lancer le fichier, et ignorez les messages de sécurité de google (l'application est sans danger)
     -Une fois installé, lancer l'application my-app, créez vous un compte, naviguez et essayez les fonctionnalités.
+    
 
 
 Pour utiliser l'application mobile en mode développement (si problèmes rencontrés avec l'application exportée), il faut : 
@@ -29,6 +30,18 @@ Pour utiliser l'application mobile en mode développement (si problèmes rencont
     et non accès a la page profile et retour d'erreur, appuyer sur le bouton "Se déconnecter" dans la page d'accueil, 
     et re-créer un compte, l'application ne vérifiant pas l'entrée du compte courant, si changement d'ID dans la base 
     elle bloquera.
+
+
+Quelques détails sur l'application :
+    -Pour rechercher, entrer le nom souhaité puis appuyer sur le bouton de recherche
+    -Lors de la recherche par catégorie, le texte affiché est l'ID de la catégorie,
+     laissée telle quelle par manque de temps et d'autres priorités
+    -Lors de la création d'un évènement, le choix de la catégorie principale n'es pas permis, par manque
+     de temps aussi
+    -Le bouton "Se Déconnecter" sur la page d'accueil n'es la que parce que l'application ne prends pas en compte
+     les changements d'entrées dans la DB. Donc, si la page de profil n'es plus accessible, appuyer dessus et créez un nouveau compte.
+    -Afin de voir l'onglet My Events (du milieu) complet, connectez vous à un compte qui est participant à des events:
+    email : leo-paul.musardo@etu.univ-amu.fr password : leopaul
 
 Auteurs:
 

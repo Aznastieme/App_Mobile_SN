@@ -42,6 +42,7 @@ const Home = () => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
+      <Button title="Se déconnecter" onPress={logout} />
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -49,7 +50,7 @@ const Home = () => {
         showsVerticalScrollIndicator={false}
       />
       
-      <Button title="Se déconnecter" onPress={logout} />
+      
     </SafeAreaView>
   );
 };
